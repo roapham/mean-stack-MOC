@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns:ng="http://angularjs.org">
+<head>
+    <title><%= title %></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css">
+    <link href="/lib/bootstrap/dist/css/simple-sidebar.css" rel="stylesheet">
+
+</head>
+<body>
+    <div class="header">
+        <div class="navbar navbar-default" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                    <a class="navbar-brand" href="#/">Online Education</a>
+                </div>
+
+                <div class="collapse navbar-collapse pull-right" id="js-navbar-collapse">
+
+                    <ul class="nav navbar-nav">
+
+
+
+                        <!--<li><a href="#/">Faculties</a></li>-->
+                        <!--<li><a ng-href="#/movies">Add lecturer</a></li>-->
+
+
+                        <li><a ng-href="#/about">About</a></li>
+                        <li><a ng-href="#/">Contact</a></li>
+                        <% if (user) { %>
+                        <li><a href='/signout'>Signout</a></li>
+                        <% } else { %>
+                        <li><a href='/signin'>Signin</a></li>
+                        <% } %>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div ui-view></div>
+    </div>
+
+    <script type="text/javascript">
+        window.user = <%- user || 'null' %>;
+
+    </script>
+
+    <script type="text/javascript" src="/lib/angular/angular.js"></script>
+    <script type="text/javascript" src="/lib/angular-route/angular-route.js"></script>
+    <script type="text/javascript" src="/lib/angular-resource/angular-resource.js"></script>
+
+    <script type="text/javascript" src="/articles/articles.client.module.js"></script>
+    <script type="text/javascript" src="/articles/controllers/articles.client.controller.js"></script>
+    <script type="text/javascript" src="/articles/services/articles.client.service.js"></script>
+    <script type="text/javascript" src="/articles/config/articles.client.routes.js"></script>
+
+    <script type="text/javascript" src="/example/example.client.module.js"></script>
+    <script type="text/javascript" src="/example/controllers/example.client.controller.js"></script>
+    <script type="text/javascript" src="/example/config/example.client.routes.js"></script>
+
+    <!-- user -->
+    <script type="text/javascript" src="/users/users.client.module.js"></script>
+    <script type="text/javascript" src="/users/services/authentication.client.service.js"></script>
+    <script type="text/javascript" src="/users/services/users.client.service.js"></script>
+    <!-- faculties -->
+    <script type="text/javascript" src="/faculties/faculties.client.module.js"></script>
+    <script type="text/javascript" src="/faculties/controllers/faculties.client.controller.js"></script>
+    <script type="text/javascript" src="/faculties/services/faculties.client.service.js"></script>
+    <script type="text/javascript" src="/faculties/config/faculties.client.routes.js"></script>
+    <!-- admin -->
+    <script type="text/javascript" src="/admin/admin.client.module.js"></script>
+    <script type="text/javascript" src="/admin/controllers/admin.client.controller.js"></script>
+    <script type="text/javascript" src="/admin/config/admin.client.routes.js"></script>
+    <!-- home -->
+    <script type="text/javascript" src="/home/home.client.module.js"></script>
+    <script type="text/javascript" src="/home/controllers/home.client.controller.js"></script>
+    <script type="text/javascript" src="/home/config/home.client.routes.js"></script>
+    <!-- lecturer -->
+    <script type="text/javascript" src="/lecturers/lecturers.client.module.js"></script>
+    <script type="text/javascript" src="/lecturers/config/lecturers.client.routes.js"></script>
+    <script type="text/javascript" src="/lecturers/controllers/lecturers.client.controller.js"></script>
+    <!-- courses -->
+    <script type="text/javascript" src="/courses/courses.client.module.js"></script>
+    <script type="text/javascript" src="/courses/services/courses.client.service.js"></script>
+    <!-- lectures -->
+    <script type="text/javascript" src="/lectures/lectures.client.module.js"></script>
+    <script type="text/javascript" src="/lectures/services/lectures.client.services.js"></script>
+
+
+
+    <!--Bootstrap AngularJS Application-->
+    <script type="text/javascript" src="/application.js"></script>
+
+    <script type="text/javascript" src="/lib/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!-- angular ui router -->
+    <script type="text/javascript" src="/lib/angular-ui-router/release/angular-ui-router.min.js"></script>
+
+</body>
+</html>

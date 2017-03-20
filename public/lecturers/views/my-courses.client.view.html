@@ -1,0 +1,18 @@
+<section data-ng-controller="LecturersController">
+	<!-- <section data-ng-controller="LecturersController"> -->
+
+	<h1>My Courses</h1>
+
+	<!-- List my courses -->
+	<ul>
+		<li data-ng-repeat="myCourse in myCourses">
+			<a ui-sref=".coursedetails({ courseId: myCourse._id })" data-ng-bind="myCourse.name"></a>
+		</li>
+	</ul>
+	<div data-ng-hide="!myCourses || myCourses.length">
+		No faculties yet !
+	</div>
+
+
+
+</section>

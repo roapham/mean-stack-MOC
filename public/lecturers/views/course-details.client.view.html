@@ -1,0 +1,101 @@
+<h3>Course Details</h3>
+<strong>Course name: {{ selectedCourse.name }}</strong><br>
+Faculty: {{ selectedCourse.faculty.name }}<br>
+Date create: {{ selectedCourse.created }}<br>
+<button class="btn btn-default" data-toggle="modal" data-target="#editForm">Edit</button>
+<button class="btn btn-primary" data-toggle="modal" data-target="#addLectureForm">Add lecture</button>
+
+<div>
+	<!-- Lectures -->
+	<!-- {{ courseLectures }} -->
+	<br>
+	<br>
+	<strong data-ng-show="!courseLectures || courseLectures.length">Course lectures</strong>
+	<div data-ng-hide="!courseLectures || courseLectures.length">
+        You don't have any lecture for this course yet!
+    </div>
+	<div>
+		<ul>
+			<li data-ng-repeat="courseLecture in courseLectures">
+				<a data-ng-bind="courseLecture.name"></a>
+				<p><small>Video link: {{courseLecture.video}}</small></p>
+				<p><small>Slide link: {{courseLecture.slide}}</small></p>
+			</li>
+		</ul>
+	</div>
+
+	<!-- Modal edit form -->
+	<div id="editForm" class="modal fade" role="dialog" data-ng-controller="LecturersController">
+		<div class="modal-dialog" >
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Edit Course</h4> 
+				</div>
+				<div class="modal-body">
+					<!-- Form update Faculty -->
+					<form data-ng-submit="updateMyCourse()" novalidate>
+						<div class="form-group">
+							<label>Course name</label>									
+							<input class="form-control" type="text" data-ng-model="selectedCourse.name" id="name" required>
+						</div>	
+						<div class="form-group" >
+							<label>Faculty:</label> {{selectedCourse.faculty.name}}
+							<select class="form-control" name="faculty" data-ng-model="selectedCourse.faculty"  
+							data-ng-options="faculty as faculty.name for faculty in faculties" required>					
+							</select>		
+
+						</div>							
+						<input type="submit" value="Update" class="btn btn-primary">
+						<input class="btn" type="button" value="Close" data-dismiss="modal">											
+
+						<div data-ng-show="error">
+							<strong data-ng-bind="error"></strong>
+						</div>
+					</form>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Modal add lecture form -->
+	<div id="addLectureForm" class="modal fade" role="dialog" data-ng-controller="LecturersController">
+		<div class="modal-dialog" >
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Add new lecture</h4> 
+				</div>
+				<div class="modal-body">
+					<!-- Form update Faculty -->
+					<form data-ng-submit="addLecture()" novalidate>
+						<div class="form-group">
+							<label>Lecture name</label>									
+							<!-- <input class="form-control" type="text" data-ng-model="addThisLecture.name" id="name" required> -->
+							<input class="form-control" type="text" data-ng-model="addThisLecture.name" id="name" required>
+
+						</div>
+						<div class="form-group">
+							<label>Lecture video</label>									
+							<input class="form-control" type="text" data-ng-model="addThisLecture.video" id="name" required>
+						</div>
+						<div class="form-group">
+							<label>Lecture slide</label>									
+							<input class="form-control" type="text" data-ng-model="addThisLecture.slide" id="name" required>
+						</div>
+						<input type="submit" value="Add" class="btn btn-primary">
+						<input class="btn" type="button" value="Close" data-dismiss="modal">											
+
+						<div data-ng-show="error">
+							<strong data-ng-bind="error"></strong>
+						</div>
+					</form>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

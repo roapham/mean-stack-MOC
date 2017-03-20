@@ -1,0 +1,7 @@
+<section data-ng-controller="FacultiesController" data-ng-init="findOne()">
+    <h1 data-ng-bind="faculty.name"></h1>
+    <div data-ng-show="authentication.user.role == 'admin'">
+    <a href="/#!/faculties/{{faculty._id}}/edit">edit</a>
+    </div>
+    <p data-ng-bind="faculty.name"></p>
+</section>

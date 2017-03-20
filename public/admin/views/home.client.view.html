@@ -1,0 +1,25 @@
+<div id="wrapper">
+
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li class="sidebar-brand"> <a ui-sref=".welcome"> Welcome Admin </a> </li>
+           <!--  <li> <a href="#!/admin/faculties">Faculties</a> </li>
+           <li> <a href="#!/admin/account/create">Create account</a> </li> -->
+           <li> <a ui-sref=".faculties">Faculties</a> </li>
+           <li> <a ui-sref=".addAccount">Create account</a> </li>
+       </ul>
+   </div>
+   <!-- /#sidebar-wrapper -->
+
+
+   <div id="page-content-wrapper">
+    <div class="container-fluid">
+        <div ui-view>
+            <div class="jumbotron text-center"><h1>Welcome Admin</h1></div>
+        </div>
+    </div>
+</div>
+
+</div>
+<!-- /#wrapper -->

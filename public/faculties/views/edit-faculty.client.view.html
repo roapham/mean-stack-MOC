@@ -1,0 +1,18 @@
+<section data-ng-controller="FacultiesController" data-ng-init="findOne()">
+    <h1>Edit Faculty</h1>
+    <form data-ng-submit="update()" novalidate>
+        <div>
+            <label>Faculty name</label>
+            <div>
+                <input type="text" data-ng-model="faculty.name" id="name"
+                       placeholder="Faculty name" required>
+            </div>
+        </div>
+        <div>
+            <input type="submit" value="Update">
+        </div>
+        <div data-ng-show="error">
+            <strong data-ng-bind="error"></strong>
+        </div>
+    </form>
+</section>

@@ -1,0 +1,25 @@
+{
+  "name": "MEAN",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Trieu Pham"
+  ],
+  "license": "MIT",
+  "moduleType": [],
+  "homepage": "./app/views/index.ejs",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.5",
+    "angular-route": "^1.5.5",
+    "angular-resource": "^1.5.5",
+    "bootstrap": "^3.3.6",
+    "angular-ui-router": "^0.2.18"
+  }
+}

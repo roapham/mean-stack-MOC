@@ -1,0 +1,60 @@
+<section data-ng-controller="FacultiesController" data-ng-init="find()">
+	<h1>Faculties</h1>
+
+	<!-- form create new faculty -->
+	<form data-ng-submit="create()" novalidate>
+		<div class="form-group">
+			<label>Faculty name</label>
+			<input type="text" class="form-control" data-ng-model="name" id="name" placeholder="Faculty name" required>
+		</div>
+		<button class="btn btn-default" type="submit">Create</button>
+
+		<div data-ng-show="error">
+			<strong data-ng-bind="error"></strong>
+		</div>
+	</form>
+
+	<br>
+	<!-- List all faculties -->
+	<ul>
+		<li data-ng-repeat="faculty in faculties">
+			<!-- <a data-ng-href="#!/faculties/{{faculty._id}}" data-ng-bind="faculty.name"></a> -->
+			<a data-ng-bind="faculty.name" data-toggle="modal" data-target="#{{faculty._id}}"></a>
+			<!-- Modal -->
+			<div id="{{faculty._id}}" class="modal fade" role="dialog" data-ng-controller="FacultiesController" data-ng-init="clearErr()">
+				<div class="modal-dialog" >
+					<!-- Modal content-->
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+							<h4 class="modal-title">Edit Faculty</h4>
+						</div>
+						<div class="modal-body">
+							<!-- Form update Faculty -->
+							<form data-ng-submit="update()" novalidate>
+								<div class="form-group">
+									<label>Faculty name</label>									
+									<input class="form-control" type="text" data-ng-model="faculty.name" id="name" required>
+								</div>								
+								<input type="submit" value="Update" class="btn btn-primary">
+								<input class="btn" type="button" value="Close" data-dismiss="modal">											
+
+								<div data-ng-show="error">
+									<strong data-ng-bind="error"></strong>
+								</div>
+							</form>
+
+						</div>
+					</div>
+
+				</div>
+			</li>
+		</ul>
+		<div data-ng-hide="!faculties || faculties.length">
+			No faculties yet, why don't you <a href="/#!/faculties/create">create one</a>?
+		</div>
+
+
+
+	</div>
+</section>

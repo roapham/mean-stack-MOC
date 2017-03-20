@@ -1,0 +1,16 @@
+<h1>Current available lecture</h1>
+<div data-ng-controller="HomeController">
+	<ul>
+		<li data-ng-repeat="listLecture in listAllLectures">
+			<a ui-sref="viewlecture({viewLectureId:listLecture._id})">
+				<p><strong>{{listLecture.name}}</strong></p>
+				<small>
+					<p>Lecturer: {{listLecture.course.creator.fullName}}</p>
+					<p>Faculty: {{listLecture.course.faculty.name}}</p>
+					<p>Course: {{listLecture.course.name}}</p>
+				</small>
+			</a>
+		</li>
+
+	</ul>
+</div>

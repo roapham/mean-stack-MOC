@@ -1,0 +1,23 @@
+<div class="jumbotron" data-ng-controller="LecturersController">
+	<!-- <div data-ng-controller="FacultiesController as Faculties" data-ng-init="find()" > -->
+
+		<h3>Create new course</h3>
+		<div data-ng-show="error">
+			<strong data-ng-bind="error"></strong>
+		</div>
+		<form data-ng-submit="createCourse()" novalidate>
+			<div class="form-group">
+				<label>Course name:</label>
+				<input type="text" class="form-control" name="name" data-ng-model="name" required />
+			</div>
+			<div class="form-group" >
+				<label>Faculty:</label> {{ faculty.name }}
+				<select class="form-control" name="faculty" data-ng-model="faculty"  
+				data-ng-options="faculty as faculty.name for faculty in faculties" required>					
+				</select>		
+			</div>
+			<button class="btn btn-default" type="submit">Create</button>
+
+		</form>
+	<!-- </div>	 -->
+</div>
